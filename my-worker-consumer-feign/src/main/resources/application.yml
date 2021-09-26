@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: worker-consumer-feign
+server:
+  port: 8764
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+feign:
+  #开启hystrix熔断器
+#  hystrix:
+#    enabled: true
+    # 配置hystrix的超时时间
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 3000
